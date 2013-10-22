@@ -4,7 +4,6 @@ author: TimelyPortfolio
 license: by-nc-sa
 widgets: [mathjax, bootstrap]
 github: {user: timelyportfolio, repo: research_lopezdePrado}
-url: {lib: ../../libraries}
 mode: selfcontained
 hitheme: tomorrow
 assets:
@@ -62,8 +61,8 @@ opts_chunk$set(
 The Effects of Backtest Overfitting on Out-of-Sample Performance
 <p class="muted">Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim<br>   
  October 7, 2013   <br> 
- Available at SSRN: http://ssrn.com/abstract=2308659<br> 
-   or http://dx.doi.org/10.2139/ssrn.2308659
+ Available at SSRN: [http://ssrn.com/abstract=2308659]<br> 
+   or [http://dx.doi.org/10.2139/ssrn.2308659]
 </p>
 </address>
 
