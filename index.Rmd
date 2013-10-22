@@ -5,7 +5,7 @@ license: by-nc-sa
 widgets: [mathjax, bootstrap]
 github: {user: timelyportfolio, repo: research_lopezdePrado}
 mode: selfcontained
-hitheme: tomorrow
+hitheme: solarized_light
 assets:
   css:
   - "http://fonts.googleapis.com/css?family=Raleway:300"
@@ -28,8 +28,6 @@ body{
 h1,h2,h3,h4 {
   font-family: 'Raleway', sans-serif;
 }
-
-.container { width: 900px; }
 
 h3 {
   background-color: #D4DAEC;
