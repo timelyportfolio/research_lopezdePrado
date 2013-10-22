@@ -69,20 +69,16 @@ emax(10)  # should be about = 1.57 to match paper
 ## [1] 1.575
 ```
 
-```r
-
-upbound <- function(N) {
-  sqrt(2*log(N))
-}
-```
-
 
 ---
 
 
 ```r
-#make a plot for reasonableness check
-#not trying hard for beauty here
+#implement upper bound
+upbound <- function(N) {
+  sqrt(2*log(N))
+}
+#make a ugly plot for reasonableness check
 x11(8,10)
 curve(upbound, from = 1, to = 1000, col = "red", lty = 2)
 curve(emax, from = 1, to = 1000, add=TRUE)
@@ -140,8 +136,7 @@ minBTL( N = 45, eMaxSharpe = 1 )
 
 ```r
 
-#not trying hard for beauty here
-#but produce chart for a reasonableness check
+#make ugly plot for a reasonableness check
 x11(8,10)
 curve( minBTL, from = 1, to = 1000)
 ```

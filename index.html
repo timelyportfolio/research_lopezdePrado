@@ -110,20 +110,17 @@ emax(10)  # should be about = 1.57 to match paper
 <pre><code>## [1] 1.575
 </code></pre>
 
-<pre><code class="r">
-upbound &lt;- function(N) {
-  sqrt(2*log(N))
-}
-</code></pre>
-
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-4" style="background:;">
   <article data-timings="">
-    <pre><code class="r">#make a plot for reasonableness check
-#not trying hard for beauty here
+    <pre><code class="r">#implement upper bound
+upbound &lt;- function(N) {
+  sqrt(2*log(N))
+}
+#make a ugly plot for reasonableness check
 x11(8,10)
 curve(upbound, from = 1, to = 1000, col = &quot;red&quot;, lty = 2)
 curve(emax, from = 1, to = 1000, add=TRUE)
@@ -186,8 +183,7 @@ minBTL( N = 45, eMaxSharpe = 1 )
 <slide class="" id="slide-7" style="background:;">
   <article data-timings="">
     <pre><code class="r">
-#not trying hard for beauty here
-#but produce chart for a reasonableness check
+#make ugly plot for a reasonableness check
 x11(8,10)
 curve( minBTL, from = 1, to = 1000)
 </code></pre>
