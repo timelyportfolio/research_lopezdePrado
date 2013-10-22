@@ -7,7 +7,42 @@ github: {user: timelyportfolio, repo: research_lopezdePrado}
 url: {lib: ../../libraries}
 mode: selfcontained
 hitheme: tomorrow
+assets:
+  css:
+  - "http://fonts.googleapis.com/css?family=Raleway:300"
+  - "http://fonts.googleapis.com/css?family=Oxygen"
 --- dt:10
+  
+<style>
+iframe{
+  height:450px;
+  width:900px;
+  margin:auto auto;
+}
+
+body{
+  font-family: 'Oxygen', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.container { width: 900px; }
+
+h3 {
+  background-color: #D4DAEC;
+    text-indent: 100px; 
+}
+
+h4 {
+  text-indent: 100px;
+}
+
+iframe {height: 420px; width: 620px}
+</style>
 
 ```{r message = F, warning = F, error = F, echo = F, tidy = F, cache = F}
 require(knitr)
@@ -22,14 +57,16 @@ opts_chunk$set(
 )
 ```
 
-<blockquote> Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado,
-   Marcos and Zhu, Qiji Jim
- Pseudo-Mathematics and Financial Charlatanism:
-   The Effects of Backtest Overfitting on Out-of-Sample Performance
- October 7, 2013
- Available at SSRN: http://ssrn.com/abstract=2308659
+<address>
+<strong>Pseudo-Mathematics and Financial Charlatanism:</strong><br>
+The Effects of Backtest Overfitting on Out-of-Sample Performance
+<p class="muted">Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim<br>   
+ October 7, 2013   <br> 
+ Available at SSRN: http://ssrn.com/abstract=2308659<br> 
    or http://dx.doi.org/10.2139/ssrn.2308659
-</blockquote>
+</p>
+</address>
+
 
 ---
 
@@ -65,9 +102,7 @@ emax(10)  # should be about = 1.57 to match paper
 
 ```{r}
 #implement upper bound
-upbound <- function(N) {
-  sqrt(2*log(N))
-}
+upbound <- function(N) {sqrt(2*log(N))}
 #make a ugly plot for reasonableness check
 x11(8,10)
 curve(upbound, from = 1, to = 1000, col = "red", lty = 2)
@@ -109,7 +144,6 @@ minBTL( N = 45, eMaxSharpe = 1 )
 ---
 
 ```{r}
-
 #make ugly plot for a reasonableness check
 x11(8,10)
 curve( minBTL, from = 1, to = 1000)

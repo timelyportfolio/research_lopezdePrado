@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="../../libraries/frameworks/io2012/css/slidify.css" >
   <link rel="stylesheet" href="../../libraries/highlighters/highlight.js/css/tomorrow.css" />
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="../../libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="http://fonts.googleapis.com/css?family=Raleway:300"></link>
+<link rel=stylesheet href="http://fonts.googleapis.com/css?family=Oxygen"></link>
 
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
@@ -51,14 +53,48 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <article data-timings="10">
-    <blockquote> Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado,
-   Marcos and Zhu, Qiji Jim
- Pseudo-Mathematics and Financial Charlatanism:
-   The Effects of Backtest Overfitting on Out-of-Sample Performance
- October 7, 2013
- Available at SSRN: http://ssrn.com/abstract=2308659
+    <style>
+iframe{
+  height:450px;
+  width:900px;
+  margin:auto auto;
+}
+
+body{
+  font-family: 'Oxygen', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.container { width: 900px; }
+
+h3 {
+  background-color: #D4DAEC;
+    text-indent: 100px; 
+}
+
+h4 {
+  text-indent: 100px;
+}
+
+iframe {height: 420px; width: 620px}
+</style>
+
+<p><address>
+<strong>Pseudo-Mathematics and Financial Charlatanism:</strong><br>
+The Effects of Backtest Overfitting on Out-of-Sample Performance</p>
+
+<p class="muted">Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim<br>   
+ October 7, 2013   <br> 
+ Available at SSRN: http://ssrn.com/abstract=2308659<br> 
    or http://dx.doi.org/10.2139/ssrn.2308659
-</blockquote>
+</p>
+
+<p></address></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -117,9 +153,7 @@ emax(10)  # should be about = 1.57 to match paper
 <slide class="" id="slide-4" style="background:;">
   <article data-timings="">
     <pre><code class="r">#implement upper bound
-upbound &lt;- function(N) {
-  sqrt(2*log(N))
-}
+upbound &lt;- function(N) {sqrt(2*log(N))}
 #make a ugly plot for reasonableness check
 x11(8,10)
 curve(upbound, from = 1, to = 1000, col = &quot;red&quot;, lty = 2)
@@ -182,8 +216,7 @@ minBTL( N = 45, eMaxSharpe = 1 )
 
 <slide class="" id="slide-7" style="background:;">
   <article data-timings="">
-    <pre><code class="r">
-#make ugly plot for a reasonableness check
+    <pre><code class="r">#make ugly plot for a reasonableness check
 x11(8,10)
 curve( minBTL, from = 1, to = 1000)
 </code></pre>
