@@ -9,18 +9,8 @@ mode: selfcontained
 hitheme: tomorrow
 --- dt:10
 
-```{r message = F, warning = F, error = F, echo = F, tidy = F, cache = F}
-require(knitr)
-opts_chunk$set(
-  message = F,
-  warning = F,
-  error = F,
-  tidy = F,
-  cache = F,
-  fig.width = 8,
-  fig.height = 5
-)
-```
+
+
 
 <blockquote> Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado,
    Marcos and Zhu, Qiji Jim
@@ -33,16 +23,30 @@ opts_chunk$set(
 
 ---
 
-```{r}
+
+```r
 # these are the constants referenced
 # Euler–Mascheroni's constant
 -digamma(1)
+```
+
+```
+## [1] 0.5772
+```
+
+```r
 # euler constant
 exp(1)
 ```
+
+```
+## [1] 2.718
+```
+
 ---
 
-```{r}
+
+```r
 ### Try to get the right answer for Eq. 4
 # if N = 10 paper says 1.57
 emax <- function(N) {
@@ -51,15 +55,24 @@ emax <- function(N) {
 }
 
 emax(10)  # should be about = 1.57 to match paper
+```
+
+```
+## [1] 1.575
+```
+
+```r
 
 upbound <- function(N) {
   sqrt(2*log(N))
 }
 ```
 
+
 ---
 
-```{r}
+
+```r
 #make a plot for reasonableness check
 #not trying hard for beauty here
 x11(8,10)
@@ -68,9 +81,13 @@ curve(emax, from = 1, to = 1000, add=TRUE)
 grid()
 ```
 
+![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4.png) 
+
+
 ---
 
-```{r}
+
+```r
 ### Try next example for Eq. 6
 # if y = 5
 # so solve for annualized Sharpe of 1
@@ -82,20 +99,35 @@ y=5
 emax(N) * y^-0.5  #seemingly understand since close
 ```
 
+```
+## [1] 0.9998
+```
+
+
 ---
-```{r}
+
+```r
 # now try to write a function for min BTL Backtest Length
 minBTL <- function( N, eMaxSharpe = 1 ) {
   (emax(N) / eMaxSharpe) ^ 2
 }
 minBTL( N = 45, eMaxSharpe = 1 )  #then should equal 5 if correct
 ```
+
+```
+## [1] 4.998
+```
+
 ---
 
-```{r}
+
+```r
 
 #not trying hard for beauty here
 #but produce chart for a reasonableness check
 x11(8,10)
 curve( minBTL, from = 1, to = 1000)
 ```
+
+![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7.png) 
+
