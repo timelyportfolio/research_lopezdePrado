@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Backtest Overfitting | Tests in R</title>
+  <title>Backtest Overfitting | Translated in R</title>
   <meta charset="utf-8">
-  <meta name="description" content="Backtest Overfitting | Tests in R">
+  <meta name="description" content="Backtest Overfitting | Translated in R">
   <meta name="author" content="TimelyPortfolio">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Backtest Overfitting | Tests in R</h1>
+    <h1>Backtest Overfitting | Translated in R</h1>
     <h2></h2>
     <p>TimelyPortfolio<br/></p>
   </hgroup>
@@ -80,14 +80,15 @@ h4 {
 iframe {height: 420px; width: 620px}
 </style>
 
-<h2>Original Paper</h2>
+<h3>Original Paper</h3>
 
-<p><address>
+<p><br>
+<address>
 <strong style="lineheight:40px;">Pseudo-Mathematics and Financial Charlatanism:</strong><p style="lineheight:40px;">The Effects of Backtest Overfitting on Out-of-Sample Performance</p></p>
 
 <p class="muted" style="line-height:26px;">Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim<br>
 October 7, 2013<br>
-Available at SSRN: <a href="http://ssrn.com/abstract=2308659">http://ssrn.com/abstract=2308659</a><br>or <a href="http://dx.doi.org/10.2139/ssrn.2308659">http://dx.doi.org/10.2139/ssrn.2308659</a>
+Available at SSRN: <a href="http://ssrn.com/abstract=2308659">http://ssrn.com/abstract=2308659</a>
 </p>
 
 <p></address></p>
@@ -97,6 +98,9 @@ Available at SSRN: <a href="http://ssrn.com/abstract=2308659">http://ssrn.com/ab
 </slide>
 
 <slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h3>Constants - R Equivalents</h3>
+  </hgroup>
   <article data-timings="">
     <pre><code class="r"># these are the constants referenced
 # Euler–Mascheroni&#39;s constant
@@ -136,7 +140,7 @@ emax &lt;- function(N) {
       (-digamma(1) * qnorm( 1 - (1/N) * exp(-1)))
 }
 
-emax(10)  # should be about = 1.57 to match paper
+emax( N = 10 )  # should be about = 1.57 to match paper
 </code></pre>
 
 <pre><code>## [1] 1.575
@@ -147,11 +151,13 @@ emax(10)  # should be about = 1.57 to match paper
 </slide>
 
 <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h3>Plot \(E[max_N]\)</h3>
+  </hgroup>
   <article data-timings="">
     <pre><code class="r">#implement upper bound
 upbound &lt;- function(N) {sqrt(2*log(N))}
 #make a ugly plot for reasonableness check
-x11(8,10)
 curve(upbound, from = 1, to = 1000, col = &quot;red&quot;, lty = 2)
 curve(emax, from = 1, to = 1000, add=TRUE)
 grid()
@@ -164,6 +170,9 @@ grid()
 </slide>
 
 <slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h3>Check My Math</h3>
+  </hgroup>
   <article data-timings="">
     <pre><code class="r">### Try next example for Eq. 6
 # if y = 5
@@ -171,9 +180,9 @@ grid()
 # says no more than 45 N should be tried
 
 # first just do this to make sure I understand
-N=45
-y=5
-emax(N) * y^-0.5  #seemingly understand since close
+N = 45
+y = 5
+emax( N ) * y^-0.5  #seemingly understand since close
 </code></pre>
 
 <pre><code>## [1] 0.9998
@@ -185,7 +194,7 @@ emax(N) * y^-0.5  #seemingly understand since close
 
 <slide class="" id="slide-6" style="background:;">
   <hgroup>
-    <h3>Minimum Backtest Length (MinBTL)</h3>
+    <h3>Minimum Backtest Length \(MinBTL\)</h3>
   </hgroup>
   <article data-timings="">
     <p>\[
@@ -211,9 +220,11 @@ minBTL( N = 45, eMaxSharpe = 1 )
 </slide>
 
 <slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h3>Plot \(MinBTL\)</h3>
+  </hgroup>
   <article data-timings="">
     <pre><code class="r">#make ugly plot for a reasonableness check
-x11(8,10)
 curve( minBTL, from = 1, to = 1000)
 </code></pre>
 
@@ -235,7 +246,7 @@ curve( minBTL, from = 1, to = 1000)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title=''>
+        data-slide=2 title='Constants - R Equivalents'>
          2
       </a>
     </li>
@@ -247,25 +258,25 @@ curve( minBTL, from = 1, to = 1000)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title=''>
+        data-slide=4 title='Plot \(E[max_N]\)'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title=''>
+        data-slide=5 title='Check My Math'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Minimum Backtest Length (MinBTL)'>
+        data-slide=6 title='Minimum Backtest Length \(MinBTL\)'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title=''>
+        data-slide=7 title='Plot \(MinBTL\)'>
          7
       </a>
     </li>

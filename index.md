@@ -1,5 +1,5 @@
 ---
-title: Backtest Overfitting | Tests in R
+title: Backtest Overfitting | Translated in R
 author: TimelyPortfolio
 license: by-nc-sa
 widgets: [mathjax, bootstrap]
@@ -42,17 +42,19 @@ iframe {height: 420px; width: 620px}
 
 
 
-## Original Paper
+### Original Paper
+<br>
 <address>
 <strong style="lineheight:40px;">Pseudo-Mathematics and Financial Charlatanism:</strong><p style="lineheight:40px;">The Effects of Backtest Overfitting on Out-of-Sample Performance</p>
 <p class="muted" style="line-height:26px;">Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim<br>
 October 7, 2013<br>
-Available at SSRN: <a href="http://ssrn.com/abstract=2308659">http://ssrn.com/abstract=2308659</a><br>or <a href="http://dx.doi.org/10.2139/ssrn.2308659">http://dx.doi.org/10.2139/ssrn.2308659</a>
+Available at SSRN: <a href="http://ssrn.com/abstract=2308659">http://ssrn.com/abstract=2308659</a>
 </p>
 </address>
 
-
 ---
+
+### Constants - R Equivalents
 
 
 ```r
@@ -93,22 +95,21 @@ emax <- function(N) {
       (-digamma(1) * qnorm( 1 - (1/N) * exp(-1)))
 }
 
-emax(10)  # should be about = 1.57 to match paper
+emax( N = 10 )  # should be about = 1.57 to match paper
 ```
 
 ```
 ## [1] 1.575
 ```
 
-
 ---
 
+### Plot $E[max_N]$
 
 ```r
 #implement upper bound
 upbound <- function(N) {sqrt(2*log(N))}
 #make a ugly plot for reasonableness check
-x11(8,10)
 curve(upbound, from = 1, to = 1000, col = "red", lty = 2)
 curve(emax, from = 1, to = 1000, add=TRUE)
 grid()
@@ -118,6 +119,7 @@ grid()
 
 
 ---
+### Check My Math
 
 
 ```r
@@ -127,9 +129,9 @@ grid()
 # says no more than 45 N should be tried
 
 # first just do this to make sure I understand
-N=45
-y=5
-emax(N) * y^-0.5  #seemingly understand since close
+N = 45
+y = 5
+emax( N ) * y^-0.5  #seemingly understand since close
 ```
 
 ```
@@ -138,7 +140,7 @@ emax(N) * y^-0.5  #seemingly understand since close
 
 
 --- 
-### Minimum Backtest Length (MinBTL)
+### Minimum Backtest Length $MinBTL$
 
 $$
 \begin{aligned}
@@ -162,10 +164,10 @@ minBTL( N = 45, eMaxSharpe = 1 )
 
 ---
 
+### Plot $MinBTL$
 
 ```r
 #make ugly plot for a reasonableness check
-x11(8,10)
 curve( minBTL, from = 1, to = 1000)
 ```
 
