@@ -45,6 +45,14 @@ exp(1)
 
 ---
 
+### Expected Maximum Sharpe $E[max_N]$
+
+$$
+\begin{aligned}
+(1-\gamma)Z^{-1}\left[1-\frac{1}{N}\right]+\gamma Z^{-1}\left[1-\frac{1}{N}e^{-1}\right] \end{aligned}
+$$
+
+<h4>R Translation</h4>
 
 ```r
 ### Try to get the right answer for Eq. 4
@@ -104,14 +112,23 @@ emax(N) * y^-0.5  #seemingly understand since close
 ```
 
 
----
+--- 
+### Minimum Backtest Length (MinBTL)
+
+$$
+\begin{aligned}
+\left(\frac{(1-\gamma)Z^{-1}\left[1-\frac{1}{N}\right]+\gamma Z^{-1}\left[1-\frac{1}{N}e^{-1}\right]}{\overline{E[max_N]}}\right)^2 \end{aligned}
+$$
+
+<h4> R Translation </h4>
 
 ```r
-# now try to write a function for min BTL Backtest Length
+#use emax from earlier for numerator
 minBTL <- function( N, eMaxSharpe = 1 ) {
   (emax(N) / eMaxSharpe) ^ 2
 }
-minBTL( N = 45, eMaxSharpe = 1 )  #then should equal 5 if correct
+#then this should equal 5 if correct
+minBTL( N = 45, eMaxSharpe = 1 )
 ```
 
 ```

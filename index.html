@@ -86,8 +86,18 @@ exp(1)
 </slide>
 
 <slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h3>Expected Maximum Sharpe \(E[max_N]\)</h3>
+  </hgroup>
   <article data-timings="">
-    <pre><code class="r">### Try to get the right answer for Eq. 4
+    <p>\[
+\begin{aligned}
+(1-\gamma)Z^{-1}\left[1-\frac{1}{N}\right]+\gamma Z^{-1}\left[1-\frac{1}{N}e^{-1}\right] \end{aligned}
+\]</p>
+
+<h4>R Translation</h4>
+
+<pre><code class="r">### Try to get the right answer for Eq. 4
 # if N = 10 paper says 1.57
 emax &lt;- function(N) {
   ( ( 1 + digamma(1) ) * qnorm( 1 - 1/N ) ) +  
@@ -147,12 +157,23 @@ emax(N) * y^-0.5  #seemingly understand since close
 </slide>
 
 <slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h3>Minimum Backtest Length (MinBTL)</h3>
+  </hgroup>
   <article data-timings="">
-    <pre><code class="r"># now try to write a function for min BTL Backtest Length
+    <p>\[
+\begin{aligned}
+\left(\frac{(1-\gamma)Z^{-1}\left[1-\frac{1}{N}\right]+\gamma Z^{-1}\left[1-\frac{1}{N}e^{-1}\right]}{\overline{E[max_N]}}\right)^2 \end{aligned}
+\]</p>
+
+<h4> R Translation </h4>
+
+<pre><code class="r">#use emax from earlier for numerator
 minBTL &lt;- function( N, eMaxSharpe = 1 ) {
   (emax(N) / eMaxSharpe) ^ 2
 }
-minBTL( N = 45, eMaxSharpe = 1 )  #then should equal 5 if correct
+#then this should equal 5 if correct
+minBTL( N = 45, eMaxSharpe = 1 )
 </code></pre>
 
 <pre><code>## [1] 4.998
@@ -195,7 +216,7 @@ curve( minBTL, from = 1, to = 1000)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title=''>
+        data-slide=3 title='Expected Maximum Sharpe \(E[max_N]\)'>
          3
       </a>
     </li>
@@ -213,7 +234,7 @@ curve( minBTL, from = 1, to = 1000)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title=''>
+        data-slide=6 title='Minimum Backtest Length (MinBTL)'>
          6
       </a>
     </li>
