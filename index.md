@@ -119,7 +119,7 @@ grid()
 
 
 ---
-### Check My Math
+### Check My Math with *Eq. 6*
 
 
 ```r
@@ -131,7 +131,7 @@ grid()
 # first just do this to make sure I understand
 N = 45
 y = 5
-emax( N ) * y^-0.5  #seemingly understand since close
+emax( N ) * y^-0.5  #seems like on the right path
 ```
 
 ```
