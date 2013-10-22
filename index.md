@@ -21,8 +21,6 @@ iframe{
 
 body{
   font-family: 'Oxygen', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 h1,h2,h3,h4 {
@@ -44,13 +42,12 @@ iframe {height: 420px; width: 620px}
 
 
 
+## Original Paper
 <address>
-<strong>Pseudo-Mathematics and Financial Charlatanism:</strong><br>
-The Effects of Backtest Overfitting on Out-of-Sample Performance
-<p class="muted">Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim<br>   
- October 7, 2013   <br> 
- Available at SSRN: [http://ssrn.com/abstract=2308659]<br> 
-   or [http://dx.doi.org/10.2139/ssrn.2308659]
+<strong style="lineheight:40px;">Pseudo-Mathematics and Financial Charlatanism:</strong><p style="lineheight:40px;">The Effects of Backtest Overfitting on Out-of-Sample Performance</p>
+<p class="muted" style="line-height:26px;">Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim<br>
+October 7, 2013<br>
+Available at SSRN: <a href="http://ssrn.com/abstract=2308659">http://ssrn.com/abstract=2308659</a><br>or <a href="http://dx.doi.org/10.2139/ssrn.2308659">http://dx.doi.org/10.2139/ssrn.2308659</a>
 </p>
 </address>
 
