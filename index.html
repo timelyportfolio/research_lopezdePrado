@@ -262,11 +262,25 @@ curve( minBTL, from = 1, to = 1000)
   list(x=c(1,2:1000), minBTL=c(0,minBTL(2:1000))))
 n1 &lt;- nPlot( minBTL ~ x, data = df, type = &quot;lineChart&quot;, height = 270, width = 800)
 n1$yAxis( tickFormat = &quot;#!d3.format(&#39;,.2f&#39;)!#&quot;)
-n1$chart( useInteractiveGuideline = TRUE )
+#n1$chart( useInteractiveGuideline = TRUE )
 n1$show(&quot;iframe&quot;)
 </code></pre>
 
 <iframe src=assets/fig/unnamed-chunk-9.html seamless></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h3>Thanks</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Ramnath Vaidyanathan</li>
+<li>Bailey, David H. and Borwein, Jonathan M. and Lopez de Prado, Marcos and Zhu, Qiji Jim</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -328,6 +342,12 @@ n1$show(&quot;iframe&quot;)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=9 title='rChart \(MinBTL\)'>
          9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Thanks'>
+         10
       </a>
     </li>
   </ul>
