@@ -194,9 +194,10 @@ curve( minBTL, from = 1, to = 1000)
 
 ```r
 df <- data.frame(
-  list(x=c(1,2:1000), y=c(0,minBTL(2:1000))))
-n1 <- nPlot( y ~ x, data = df, type = "lineChart", height = 270, width = 800)
+  list(x=c(1,2:1000), minBTL=c(0,minBTL(2:1000))))
+n1 <- nPlot( minBTL ~ x, data = df, type = "lineChart", height = 270, width = 800)
 n1$yAxis( tickFormat = "#!d3.format(',.2f')!#")
+n1$chart( useInteractiveGuideline = TRUE )
 n1$show("iframe")
 ```
 
