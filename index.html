@@ -77,7 +77,7 @@ h4 {
   text-indent: 100px;
 }
 
-iframe {height: 420px; width: 620px}
+iframe {height: 300px; width: 900px}
 </style>
 
 <h3>Original Paper</h3>
@@ -133,8 +133,7 @@ exp(1)
 
 <h4>R Translation</h4>
 
-<pre><code class="r">### Try to get the right answer for Eq. 4
-# if N = 10 paper says 1.57
+<pre><code class="r">### Eq. 4
 emax &lt;- function(N) {
   ( ( 1 + digamma(1) ) * qnorm( 1 - 1/N ) ) +  
       (-digamma(1) * qnorm( 1 - (1/N) * exp(-1)))
@@ -171,6 +170,26 @@ grid()
 
 <slide class="" id="slide-5" style="background:;">
   <hgroup>
+    <h3>rChart \(E[max_N]\)</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">require(rCharts)
+df &lt;- data.frame(
+  list(x=c(1,2:1000), y=c(0,emax(2:1000))))
+d1 &lt;- dPlot( y ~ x, groups = &quot;x&quot;, data = df, type = &quot;line&quot;, height = 270, width = 800)
+d1$xAxis(type = &quot;addMeasureAxis&quot;,orderBy = &quot;x&quot;,outputFormat = &quot;,0.0f&quot;)
+d1$yAxis( outputFormat = &quot;.2f&quot;)
+d1
+</code></pre>
+
+<iframe src=assets/fig/unnamed-chunk-5.html seamless></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
     <h3>Check My Math with <em>Eq. 6</em></h3>
   </hgroup>
   <article data-timings="">
@@ -192,7 +211,7 @@ emax( N ) * y^-0.5  #seems like on the right path
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-7" style="background:;">
   <hgroup>
     <h3>Minimum Backtest Length \(MinBTL\)</h3>
   </hgroup>
@@ -219,7 +238,7 @@ minBTL( N = 45, eMaxSharpe = 1 )
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-8" style="background:;">
   <hgroup>
     <h3>Plot \(MinBTL\)</h3>
   </hgroup>
@@ -228,7 +247,25 @@ minBTL( N = 45, eMaxSharpe = 1 )
 curve( minBTL, from = 1, to = 1000)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7"> </p>
+<p><img src="assets/fig/unnamed-chunk-8.png" alt="plot of chunk unnamed-chunk-8"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h3>rChart \(MinBTL\)</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">df &lt;- data.frame(
+  list(x=c(1,2:1000), y=c(0,minBTL(2:1000))))
+n1 &lt;- nPlot( y ~ x, data = df, type = &quot;lineChart&quot;, height = 270, width = 800)
+n1$yAxis( tickFormat = &quot;#!d3.format(&#39;,.2f&#39;)!#&quot;)
+n1$show(&quot;iframe&quot;)
+</code></pre>
+
+<iframe src=assets/fig/unnamed-chunk-9.html seamless></iframe>
 
   </article>
   <!-- Presenter Notes -->
@@ -264,20 +301,32 @@ curve( minBTL, from = 1, to = 1000)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Check My Math with <em>Eq. 6</em>'>
+        data-slide=5 title='rChart \(E[max_N]\)'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Minimum Backtest Length \(MinBTL\)'>
+        data-slide=6 title='Check My Math with <em>Eq. 6</em>'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Plot \(MinBTL\)'>
+        data-slide=7 title='Minimum Backtest Length \(MinBTL\)'>
          7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Plot \(MinBTL\)'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='rChart \(MinBTL\)'>
+         9
       </a>
     </li>
   </ul>

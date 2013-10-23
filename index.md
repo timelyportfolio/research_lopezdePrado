@@ -36,7 +36,7 @@ h4 {
   text-indent: 100px;
 }
 
-iframe {height: 420px; width: 620px}
+iframe {height: 300px; width: 900px}
 </style>
 
 
@@ -88,8 +88,7 @@ $$
 <h4>R Translation</h4>
 
 ```r
-### Try to get the right answer for Eq. 4
-# if N = 10 paper says 1.57
+### Eq. 4
 emax <- function(N) {
   ( ( 1 + digamma(1) ) * qnorm( 1 - 1/N ) ) +  
       (-digamma(1) * qnorm( 1 - (1/N) * exp(-1)))
@@ -116,6 +115,22 @@ grid()
 ```
 
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4.png) 
+
+---
+
+### rChart $E[max_N]$
+
+```r
+require(rCharts)
+df <- data.frame(
+  list(x=c(1,2:1000), y=c(0,emax(2:1000))))
+d1 <- dPlot( y ~ x, groups = "x", data = df, type = "line", height = 270, width = 800)
+d1$xAxis(type = "addMeasureAxis",orderBy = "x",outputFormat = ",0.0f")
+d1$yAxis( outputFormat = ".2f")
+d1
+```
+
+<iframe src=assets/fig/unnamed-chunk-5.html seamless></iframe>
 
 
 ---
@@ -171,5 +186,19 @@ minBTL( N = 45, eMaxSharpe = 1 )
 curve( minBTL, from = 1, to = 1000)
 ```
 
-![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-8](assets/fig/unnamed-chunk-8.png) 
+
+
+---
+### rChart $MinBTL$
+
+```r
+df <- data.frame(
+  list(x=c(1,2:1000), y=c(0,minBTL(2:1000))))
+n1 <- nPlot( y ~ x, data = df, type = "lineChart", height = 270, width = 800)
+n1$yAxis( tickFormat = "#!d3.format(',.2f')!#")
+n1$show("iframe")
+```
+
+<iframe src=assets/fig/unnamed-chunk-9.html seamless></iframe>
 
